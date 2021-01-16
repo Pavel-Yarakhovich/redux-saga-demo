@@ -3,12 +3,17 @@ import {
   takeLatest,
   takeLeading,
   put,
+  putResolve,
   select,
   call,
   fork,
   spawn,
   delay,
   retry,
+  race,
+  take,
+  cancel,
+  join
 } from "redux-saga/effects";
 import {
   LOG_ACTION,
@@ -23,14 +28,23 @@ import {
   TEST_FORK,
   TEST_SPAWN,
   DEMO_RETRY,
+  TIMER,
+  CANCEL_TIMER
 } from "./demoActions";
 
+function* delayMs(ms) {
+  yield put({ type: TIMER, payload: true });
+  yield delay(ms);
+  yield put({ type: TIMER, payload: false });
+}
+
 function* demoTakeLatest(action) {
+  // yield putResolve({ type: CANCEL_TIMER });
   yield put({
     type: LOG_ACTION,
     payload: `takeLatest: dispatched with value [${action.payload}]`,
   });
-  yield delay(2000);
+  yield call(delayMs, 2000);
   yield put({
     type: LOG_ACTION,
     payload: `takeLatest: done with value [${action.payload}]`,
@@ -38,11 +52,12 @@ function* demoTakeLatest(action) {
 }
 
 function* demoTakeLeading(action) {
+  // yield putResolve({ type: CANCEL_TIMER });
   yield put({
     type: LOG_ACTION,
     payload: `takeLeading: dispatched with value [${action.payload}]`,
   });
-  yield delay(2000);
+  yield call(delayMs, 2000);
   yield put({
     type: LOG_ACTION,
     payload: `takeLeading: done with value [${action.payload}]`,
@@ -50,11 +65,13 @@ function* demoTakeLeading(action) {
 }
 
 function* demoTakeEvery(action) {
+  // yield putResolve({ type: CANCEL_TIMER });
+  yield delay(4);
   yield put({
     type: LOG_ACTION,
     payload: `takeEvery: dispatched with value [${action.payload}]`,
   });
-  yield delay(2000);
+  yield call(delayMs, 2000);
   yield put({
     type: LOG_ACTION,
     payload: `takeEvery: done with value [${action.payload}]`,
@@ -67,7 +84,7 @@ function* helper(value, effect) {
       type: LOG_ACTION,
       payload: `${effect} helper function with value [${value}]`,
     });
-    yield delay(2000);
+    yield call(delayMs, 2000);
     // throw new Error('Error in helper function');
     yield put({
       type: LOG_ACTION,
@@ -136,7 +153,7 @@ function* demoSpawn(action) {
 }
 
 function* testCall(action) {
-  yield put({ type: TEST_CALL, payload: action.payload });
+  yield putResolve({ type: TEST_CALL, payload: action.payload });
   yield put({
     type: LOG_ACTION,
     payload: `Dispatch the next action`,
@@ -144,7 +161,7 @@ function* testCall(action) {
 }
 
 function* testFork(action) {
-  yield put({ type: TEST_FORK, payload: action.payload });
+  yield putResolve({ type: TEST_FORK, payload: action.payload });
   yield put({
     type: LOG_ACTION,
     payload: `Dispatch the next action`,

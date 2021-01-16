@@ -1,8 +1,15 @@
-import { LOG_ACTION, LOG_ERROR, CLEAR_STORE } from "./demoActions";
+import {
+  LOG_ACTION,
+  LOG_ERROR,
+  CLEAR_STORE,
+  TIMER,
+  CANCEL_TIMER,
+} from "./demoActions";
 
 const initialState = {
   actions: [],
   errors: [],
+  timerIsOn: false,
 };
 
 export const demoReducer = (state = initialState, action) => {
@@ -21,6 +28,16 @@ export const demoReducer = (state = initialState, action) => {
       return {
         ...state,
         actions: [],
+      };
+    case TIMER:
+      return {
+        ...state,
+        timerIsOn: action.payload,
+      };
+    case CANCEL_TIMER:
+      return {
+        ...state,
+        timerIsOn: false,
       };
     default:
       return state;

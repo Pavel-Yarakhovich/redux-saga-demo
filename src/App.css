@@ -70,6 +70,9 @@
   border: 3px solid salmon;
   color: salmon;
 }
+.clear:hover {
+  cursor: pointer;
+}
 .log {
   display: flex;
   flex-direction: column;
@@ -83,3 +86,35 @@
 .error {
   color: red;
 }
+
+
+
+.timer_wrap {
+  height: 6px;
+  width: 400px;
+  background-color: rgba(0,0,0,.15);
+  margin-bottom: 15px;
+}
+
+.timer {
+  height: 100%;
+  width: 100%;
+  -webkit-animation: 100s ease 0s 1 normal load;
+  animation: 2s ease 0s 1 normal load;
+  transition: all 0s ease;
+}
+
+@keyframes load {
+  0% { background-image: linear-gradient(90deg, salmon 0%, transparent 0%) }
+  10% { background-image: linear-gradient(90deg, salmon 10%, transparent 10%) }
+  20% { background-image: linear-gradient(90deg, salmon 20%, transparent 20%) }
+  30% { background-image: linear-gradient(90deg, salmon 30%, transparent 30%) }
+  40% { background-image: linear-gradient(90deg, salmon 40%, transparent 40%) }
+  50% { background-image: linear-gradient(90deg, salmon 50%, transparent 50%) }
+  60% { background-image: linear-gradient(90deg, salmon 60%, transparent 60%) }
+  70% { background-image: linear-gradient(90deg, salmon 70%, transparent 70%) }
+  80% { background-image: linear-gradient(90deg, salmon 80%, transparent 80%) }
+  90% { background-image: linear-gradient(90deg, salmon 90%, transparent 90%) }
+  100% { background-image: linear-gradient(90deg, salmon 100%, transparent 100%) }
+}
+

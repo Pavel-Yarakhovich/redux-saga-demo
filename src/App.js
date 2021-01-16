@@ -90,6 +90,9 @@ const App = ({
             {chosenEffect}
           </button>
         </div>
+        <div className="timer_wrap">
+          {demo.timerIsOn ? <div className="timer" /> : null}
+        </div>
         <div className="log">
           {demo.actions.map((a, i) => (
             <p key={i}>{a}</p>

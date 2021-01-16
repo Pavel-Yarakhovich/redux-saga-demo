@@ -11,3 +11,5 @@ export const TEST_CALL = 'TEST_CALL';
 export const TEST_FORK = 'TEST_FORK';
 export const TEST_SPAWN = 'TEST_SPAWN';
 export const DEMO_RETRY = 'DEMO_RETRY';
+export const TIMER = 'TIMER';
+export const CANCEL_TIMER = 'CANCEL_TIMER';
