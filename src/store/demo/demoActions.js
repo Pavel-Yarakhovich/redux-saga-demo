@@ -1,0 +1,13 @@
+export const LOG_ACTION = 'LOG_ACTION';
+export const LOG_ERROR = 'LOG_ERROR';
+export const DEMO_TAKE_LATEST = 'DEMO_TAKE_LATEST';
+export const DEMO_TAKE_LEADING = 'DEMO_TAKE_LEADING';
+export const DEMO_TAKE_EVERY = 'DEMO_TAKE_EVERY';
+export const CLEAR_STORE = 'CLEAR_STORE';
+export const DEMO_CALL = 'DEMO_CALL';
+export const DEMO_FORK = 'DEMO_FORK';
+export const DEMO_SPAWN = 'DEMO_SPAWN';
+export const TEST_CALL = 'TEST_CALL';
+export const TEST_FORK = 'TEST_FORK';
+export const TEST_SPAWN = 'TEST_SPAWN';
+export const DEMO_RETRY = 'DEMO_RETRY';

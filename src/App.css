@@ -1,38 +1,85 @@
 .App {
   text-align: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.effects_list {
   display: flex;
   flex-direction: column;
+  width: 300px;
+  padding: 15px;
+}
+.effect, .effect_active {
+  align-self: stretch;
+  margin-bottom: 12px;
+  background-color: rgba(12,12,12, 0.4);
+  padding: 15px;
+  transition: all 250ms ease;
+  height: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.effect_active {
+  background-color: rgba(12,12,12, 0.8);
   color: white;
+  height: 40px;
+  font-weight: 700;
 }
-
-.App-link {
-  color: #61dafb;
+.effect:hover {
+  cursor: pointer;
+  background-color: rgba(12,12,12, 0.5);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.count {
+  font-size: 48px;
+  font-weight: bold;
+  color: salmon;
+  padding: 15px;
+  min-width: 100px;
+}
+.right {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.manage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.button {
+  padding: 15px;
+  font-size: 24px;
+  transition: all 250ms ease;
+  min-width: 200px;
+}
+.button:hover {
+  cursor:pointer;
+}
+.button:active {
+  background-color: rgba(12,12,35, 0.5);
+}
+.clear {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 15px;
+  border: 3px solid salmon;
+  color: salmon;
+}
+.log {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: grey;
+}
+.log > p {
+  margin: 4px;
+  font-weight: 100;
+}
+.error {
+  color: red;
 }
